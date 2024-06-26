@@ -16,4 +16,9 @@ public class CreatBrandRequest {
     @NotBlank
     @Size (min=2, max=30)
     private String name;
+
+
+
+
+
 }

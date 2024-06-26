@@ -13,7 +13,6 @@ import org.springframework.web.bind.MethodArgumentNotValidException;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
-
 @SpringBootApplication
 @RestControllerAdvice
 @PropertySource("classpath:application.properties")
@@ -21,9 +20,7 @@ public class RentACarApplication implements CommandLineRunner {
     @Value("${name}")
     String name;
     public static void main(String[] args) {
-
         SpringApplication.run(RentACarApplication.class, args);
-
     }
 
     @ExceptionHandler
@@ -41,8 +38,6 @@ public class RentACarApplication implements CommandLineRunner {
         problemDetails.setMessage(methodArgumentNotValidException.getBindingResult().getFieldError().getDefaultMessage());
         return problemDetails;
     }
-
-
     @Bean // bir nesne oluşturup ioc ye ekle , ihtiyacım olduğunda kullanayım
     //çünkü modelMapper classını oluşturanlar service anotasyonunu eklememiş
     public ModelMapper getModelMapper() {
@@ -50,7 +45,8 @@ public class RentACarApplication implements CommandLineRunner {
     }
 
     @Override
-    public void run(String... args) throws Exception {
+    public void run(String...args) throws Exception {
         System.out.println(name);
+
     }
 }
